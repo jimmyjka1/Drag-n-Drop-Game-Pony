@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pony</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        .parent {
+            display: grid;
+            height: 60vh;
+            width: 50vw;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+        
+        .child {
+            border: 1px solid rgba(0, 0, 0, 0.346);
+        }
+        
+        .draggable {
+            border: 1px solid black;
+            border-radius: 2px;
+            padding: 2vh;
+            margin: 1vh;
+            position: relative;
+        }
+        
+        .drop-container {
+            height: 10vh;
+            width: 5vw;
+        }
+        
+        #button-container {
+            min-width: 32.8vw;
+            height: 15vh;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="p-1 d-flex justify-content-center align-items-center flex-column">
+
+        <div class="parent border">
+            <div class="child d-flex justify-content-center align-items-center flex-column" id="child-1" ondrop="drop(event, 1, '52.2vh', '33vw')" ondragover="allowDrop(event)">
+                <h4>B1</h4>
+                <div data-id="1" data-top="52.2vh" data-left="33vw" id="drop-container-1" class="drop-container border d-flex justify-content-center align-items-center">
+
+                </div>
+            </div>
+            <div class="child d-flex justify-content-center align-items-center flex-column" id="child-2" ondrop="drop(event, 2,  '52.2vh', '16.3vw')" ondragover="allowDrop(event)">
+                <h4>B2</h4>
+                <div data-id="2" data-top="52.2vh" data-left="16.3vw" id="drop-container-2" class="drop-container border d-flex justify-content-center align-items-center">
+
+                </div>
+            </div>
+            <div class="child d-flex justify-content-center align-items-center flex-column" id="child-3" ondrop="drop(event, 3, '52.2vh', '-0.3vw')" ondragover="allowDrop(event)">
+                <h4>B3</h4>
+                <div data-id="3" data-top="52.2vh" data-left="-0.3vw" id="drop-container-3" class="drop-container border d-flex justify-content-center align-items-center">
+
+                </div>
+            </div>
+            <div class="child d-flex justify-content-center align-items-center flex-column" id="child-4" ondrop="drop(event, 4, '32.3vh', '33vw')" ondragover="allowDrop(event)">
+                <h4>B4</h4>
+                <div data-id="4" data-top="32.2vh" data-left="33vw" id="drop-container-4" class="drop-container border d-flex justify-content-center align-items-center">
+
+                </div>
+            </div>
+            <div class="child d-flex justify-content-center align-items-center flex-column" id="child-5" ondrop="drop(event, 5, '32.3vh', '16.3vw')" ondragover="allowDrop(event)">
+                <h4>B5</h4>
+                <div data-id="5" data-top="32.2vh" data-left="16.3vw" id="drop-container-5" class="drop-container border d-flex justify-content-center align-items-center">
+
+                </div>
+            </div>
+            <div class="child d-flex justify-content-center align-items-center flex-column" id="child-6" ondrop="drop(event, 6, '32.3vh', '-0.3vw')" ondragover="allowDrop(event)">
+                <h4>B6</h4>
+                <div data-id="6" data-top="32.2vh" data-left="-0.3vw" id="drop-container-6" class="drop-container border d-flex justify-content-center align-items-center">
+
+                </div>
+            </div>
+            <div class="child d-flex justify-content-center align-items-center flex-column" id="child-7" ondrop="drop(event, 7, '12.5vh', '33vw')" ondragover="allowDrop(event)">
+                <h4>B7</h4>
+                <div data-id="7" data-top="12.5vh" data-left="33vw" id="drop-container-7" class="drop-container border d-flex justify-content-center align-items-center">
+
+                </div>
+            </div>
+            <div class="child d-flex justify-content-center align-items-center flex-column" id="child-8" ondrop="drop(event, 8, '12.5vh', '16.3vw')" ondragover="allowDrop(event)">
+                <h4>B8</h4>
+                <div data-id="8" data-top="12.5vh" data-left="16.3vw" id="drop-container-8" class="drop-container border d-flex justify-content-center align-items-center">
+
+                </div>
+            </div>
+            <div class="child d-flex justify-content-center align-items-center flex-column" id="child-9" ondrop="drop(event, 9, '12.5vh', '-0.3vw')" ondragover="allowDrop(event)">
+                <h4>B9</h4>
+                <div data-id="9" data-top="12.5vh" data-left="-0.3vw" id="drop-container-9" class="drop-container border d-flex justify-content-center align-items-center">
+
+                </div>
+            </div>
+        </div>
+        <div id="button-container" class="m-1 border draggable-container d-flex justify-content-end align-items-center " ondrop="dropBack(event)" ondragover="allowDrop(event)">
+            <div data-id="1" id="button-1" class="draggable" draggable="true" ondragstart="drag(event)">1</div>
+            <div data-id="2" id="button-2" class="draggable" draggable="true" ondragstart="drag(event)">2</div>
+            <div data-id="3" id="button-3" class="draggable" draggable="true" ondragstart="drag(event)">3</div>
+            <div data-id="4" id="button-4" class="draggable" draggable="true" ondragstart="drag(event)">4</div>
+            <div data-id="5" id="button-5" class="draggable" draggable="true" ondragstart="drag(event)">5</div>
+            <div data-id="6" id="button-6" class="draggable" draggable="true" ondragstart="drag(event)">6</div>
+            <div data-id="7" id="button-7" class="draggable" draggable="true" ondragstart="drag(event)">7</div>
+            <div data-id="8" id="button-8" class="draggable" draggable="true" ondragstart="drag(event)">8</div>
+            <div data-id="9" id="button-9" class="draggable" draggable="true" ondragstart="drag(event)">9</div>
+        </div>
+        <div>
+            <button class="m-1 btn btn-success" onclick="check()">
+                Check
+            </button>
+            <button class="m-1 btn btn-primary" onclick="reset()">
+                Reset
+            </button>
+        </div>
+    </main>
+    <script>
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+
+        function drop(ev, num, top = '0px', left = '0px') {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+
+            var top_p = top;
+            var left_p = left;
+
+            $element = $("#" + data);
+            $element.detach()
+
+            $target = $('#drop-container-' + num);
+            var $prevOb = $target.find('.draggable');
+            if ($target.children().length > 0) {
+
+                $prevOb = $target.find('.draggable');
+
+                $prevOb.animate({
+                    top: top_p,
+                    left: left_p
+                }, {
+                    duration: 300,
+                    complete: function() {
+                        $prevOb.detach().appendTo('#button-container');
+                        $prevOb.css('top', '0');
+                        $prevOb.css('left', '0');
+                    }
+                });
+            }
+            $target.append($element);
+        }
+
+        function dropBack(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            $('#button-container').append(document.getElementById(data));
+        }
+
+
+        function check() {
+            $drop_container = $('.drop-container');
+            asnwer_correct = true;
+            $.each($drop_container, function(key, element) {
+                $container = $(element);
+
+                if ($container.children().length <= 0) {
+                    asnwer_correct = false;
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please fill all the positions',
+                    });
+                    return;
+                }
+
+                $child = $container.find('.draggable');
+
+
+                if ($child.data('id') != $container.data('id')) {
+                    asnwer_correct = false;
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Incorrect Answer.',
+                    });
+                }
+
+
+
+            });
+
+            if (asnwer_correct) {
+                Swal.fire(
+                    'Good job!',
+                    'All Answers Correct!',
+                    'success'
+                )
+            }
+        }
+
+
+        function reset() {
+            $drop_container = $('.drop-container');
+            $.each($drop_container, function(key, element) {
+                var $container = $(element);
+                var $child = $container.find('.draggable');
+
+                $child.animate({
+                    top: $container.data('top'),
+                    left: $container.data('left')
+                }, {
+                    duration: 300,
+                    complete: function() {
+                        $child.detach().appendTo('#button-container');
+                        $child.css('top', '0');
+                        $child.css('left', '0');
+                    }
+                });
+            });
+
+        }
+    </script>
+</body>
+
+</html>
